@@ -40,4 +40,9 @@ const blogPostSchema = new mongoose.Schema({
 }   , { collection: 'blogPost',timestamps:true })
 
 
-const blogPostModel = mongoose.model('BlogPost', blogPostSchema)          //mongoose'da şema oluşturdum, bunu al modele çevir dediğim yer
+//const BlogPostModel = mongoose.model('BlogPost', blogPostSchema)          //mongoose'da şema oluşturdum, bunu al modele çevir dediğim yer. artık gönderweceğim veriler buna göre şekilleniyor.
+
+module.exports={
+    //BlogCategory:
+    BlogPost: mongoose.model('BlogPost', blogPostSchema)
+}
