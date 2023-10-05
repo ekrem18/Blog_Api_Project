@@ -17,10 +17,6 @@ module.exports = (err, req, res, next) => {
 
 
 
-
-
-
-
 //yalın hali
 // module.exports = (err, req, res, next) => {
 

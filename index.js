@@ -9,6 +9,8 @@ const PORT = process.env.PORT || 8000
 /*----------------------------*/
 app.use(express.json());
 
+require('./src/dbConnection')
+
 
 app.all("/", (req, res) => {
   res.send("Welcome To BlogApi");
@@ -18,7 +20,7 @@ app.all("/", (req, res) => {
 
 
 
-require('./src/dbConnection')
+
 
 
 /* ------------------------------------------------------- */

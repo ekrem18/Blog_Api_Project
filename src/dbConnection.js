@@ -8,12 +8,6 @@ mongoose.connect(process.env.MONGODB || 'mongodb://localhost:27017/') // başka 
 
 
 
-
-    
-    
-    
-    
-    
     
     //yalın hali
 // const mongoose = require('mongoose')
