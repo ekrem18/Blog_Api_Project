@@ -22,7 +22,7 @@ const mongoose = require('mongoose')
 //     timestamps: true,
 // })
 
-const blogPost = new mongoose.Schema({
+const blogPostSchema = new mongoose.Schema({
     title:{
         type: String,
         trim: true,
@@ -38,3 +38,6 @@ const blogPost = new mongoose.Schema({
         default:true,
     }
 }   , { collection: 'blogPost',timestamps:true })
+
+
+const blogPostModel = mongoose.model('BlogPost', blogPostSchema)          //mongoose'da şema oluşturdum, bunu al modele çevir dediğim yer
