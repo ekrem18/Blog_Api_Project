@@ -11,7 +11,17 @@ const nameSchema = new mongoose.Schema({
         type: String,
         default: null, 
         trim: true,
+        select: true,
+        unique: false,
+        index: false,
+        required: [true, 'error-message'] ,
+        validate: [function(data){return true}, 'error-message'] ,
+        get: function(data){return true},
+        set: function(data){return true},
         
+
+
+
     }
 
 
