@@ -2,7 +2,7 @@
 
 require('express-async-errors')
 
-const { BlogPost } = require('../models/blogModel')
+const { BlogCategory, BlogPost } = require('../models/blogModel')
 
 
 module.exports.BlogPost = {
