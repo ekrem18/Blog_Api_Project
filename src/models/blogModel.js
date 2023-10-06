@@ -37,7 +37,7 @@ const blogPostSchema = new mongoose.Schema({
         type:Boolean,
         default:true,
     }
-}   , { collection: 'blogPost',timestamps:true })
+}   , { collection:'blogPost', timestamps:true })
 
 
 //const BlogPostModel = mongoose.model('BlogPost', blogPostSchema)          //mongoose'da şema oluşturdum, bunu al modele çevir dediğim yer. artık gönderweceğim veriler buna göre şekilleniyor.
