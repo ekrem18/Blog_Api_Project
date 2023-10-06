@@ -19,7 +19,12 @@ module.exports.BlogPost = {
     create: async (req, res) =>{
 
         const data = await BlogPost.insertOne(req.body) //dışarıdan göndereceğim bilgileri JSON göndercem doprudan kısadan yazıyorum diyorum
-
+        res.status(201).send({
+            error: false,
+            body: req.body,// gönderdiğim bilgiyi göreyim diyorum
+            result: data, //komple hepsini göreyim diyorum
+            
+        })
     },
 
     read: async (req, res) =>{
