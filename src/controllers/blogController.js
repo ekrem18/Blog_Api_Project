@@ -14,7 +14,6 @@ module.exports.BlogPost = {
             count: data.length,
             result: data
         })
-
     },
 
     create: async (req, res) =>{
@@ -23,8 +22,7 @@ module.exports.BlogPost = {
         res.status(201).send({
             error: false,
             body: req.body,// gönderdiğim bilgiyi göreyim diyorum
-            result: data, //komple hepsini göreyim diyorum
-            
+            result: data, //komple hepsini göreyim diyorum 
         })
     },
 
@@ -35,7 +33,6 @@ module.exports.BlogPost = {
             error: false,
             result: data
         })
-
     },
 
     update:  async (req, res) =>{
@@ -46,9 +43,7 @@ module.exports.BlogPost = {
             body: req.body,
             result: data,
             newData: await BlogPost.findOne({_id: req.params.postId}) 
-            
         })
-
     },
 
     delete:  async (req, res) =>{

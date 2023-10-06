@@ -22,6 +22,19 @@ const mongoose = require('mongoose')
 //     timestamps: true,
 // })
 
+
+const BlogCategorySchema = new mongoose.Schema({
+    name: {
+        type: String,
+        trim: true,
+        required: true
+    }
+}, {
+    collection: 'blogCategories',
+    timestamps: true
+})
+
+/*---------------------------------------------*/
 const blogPostSchema = new mongoose.Schema({
     title:{
         type: String,
