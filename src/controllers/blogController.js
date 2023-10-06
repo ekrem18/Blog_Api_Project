@@ -11,6 +11,7 @@ module.exports.BlogPost = {
         const data = await BlogPost.find()   // MongoDB'de bütün kayıtlarıu getirme metodu ; find()
         res.status(200).send({
             error: false,
+            count: data.length,
             result: data
         })
 
@@ -29,13 +30,30 @@ module.exports.BlogPost = {
 
     read: async (req, res) =>{
 
+        const data = await BlogPost.findOne({ _id: req.params.postId }) 
+        res.status(200).send({
+            error: false,
+            result: data
+        })
+
     },
 
     update:  async (req, res) =>{
 
+        const data = await BlogPost.updateOne({_id: req.params.postId}, req.body)
+        res.status(202).send({
+            error: false,
+            body: req.body,
+            result: data,
+            newData: await BlogPost.findOne({_id: req.params.postId}) 
+            
+        })
+
     },
 
     delete:  async (req, res) =>{
-
+        const data = await BlogPost.deleteOne({_id: req.params.postId})
+        
+        res.sendStatus((data.deletedCount >= 1 ) ? 204 : 404)
     },
 }
