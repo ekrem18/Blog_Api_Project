@@ -16,6 +16,8 @@ app.all("/", (req, res) => {
   res.send("Welcome To BlogApi");
 });
 
+app.use('/blog' , require('./src/routes/blogRoute'))
+
 
 
 
