@@ -4,11 +4,11 @@ const {BlogPost, BlogCategory} = require('../controllers/blogController')
 
 
 
-router.route('/post')
+router.route('/category')
     .get(BlogCategory.list)
     .post(BlogCategory.create)
 
-router.route('/post/:postId')
+router.route('/category/:categoryId')
     .get(BlogCategory.read)
     .put(BlogCategory.update)
     .delete(BlogCategory.delete)
