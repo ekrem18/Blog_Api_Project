@@ -8,7 +8,7 @@ const { BlogPost,BlogCategory } = require('../models/blogModel')
 module.exports.BlogCategory = {
     list: async (req, res) =>{
 
-        const data = await BlogCategory.find()   // MongoDB'de bütün kayıtlarıu getirme metodu ; find()
+        const data = await BlogCategory.find()  // MongoDB'de bütün kayıtlarıu getirme metodu ; find(). 
         res.status(200).send({
             error: false,
             count: data.length,
@@ -78,7 +78,7 @@ module.exports.BlogPost = {
 
     read: async (req, res) =>{
 
-        const data = await BlogPost.findOne({ _id: req.params.postId }) 
+        const data = await BlogPost.findOne({ _id: req.params.postId }).populate('blogCategoryId') //alt atblodan üst tablonun verisini görebilmek için populate(). foreign key'den primary key'e yani alt tablodayken bağlandığımız üst tablonun bilgilerini görme
         res.status(200).send({
             error: false,
             result: data
