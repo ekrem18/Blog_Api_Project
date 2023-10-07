@@ -18,6 +18,7 @@ const UserSchema = new mongoose.Schema({
         type: String,
         trim:true,
         required:true,
+        set: (password) => 'ekmer'   // gelen veri nolursa olsun çıktısını bunu yazıyo. Database'e doğrudan yazılmaz şifre bu mantıla yapılıyo.
     },
     
     firstName: String,
