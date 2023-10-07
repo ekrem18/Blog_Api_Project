@@ -14,3 +14,5 @@ router.route('/user/:userId')
     .get(User.read)
     .put(User.update)
     .delete(User.delete)
+
+module.exports = router
