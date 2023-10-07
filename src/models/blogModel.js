@@ -38,7 +38,7 @@ const blogCategorySchema = new mongoose.Schema({
 const blogPostSchema = new mongoose.Schema({
 
     blogCategoryId:{
-        type: mongoose.Schema.ObjectId,   // Aslında bize lazım olan ObkectId ancak js objectId olarak bir veri türü olmadıpı için bu şekilde bu bilgiyi çekiyoruz.
+        type: mongoose.Schema.ObjectId,   // Aslında bize lazım olan ObjectId ancak js objectId olarak bir veri türü olmadıpı için bu şekilde bu bilgiyi çekiyoruz.
         required: true,
         ref: 'BlogCategory'
 
