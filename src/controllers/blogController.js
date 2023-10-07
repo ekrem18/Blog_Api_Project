@@ -66,6 +66,17 @@ module.exports.BlogPost = {
         })
     },
 
+    listCategoryPosts: async (req, res) => {
+
+        const data = await BlogPost.find({ blogCategoryId: req.params.categoryId }).populate('blogCategoryId')
+
+        res.status(200).send({
+            error: false,
+            count: data.length,
+            result: data
+        })
+    },
+
     create: async (req, res) =>{
 
         const data = await BlogPost.create(req.body) //dışarıdan göndereceğim bilgileri JSON göndercem doprudan kısadan yazıyorum diyorum
