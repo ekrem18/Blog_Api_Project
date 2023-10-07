@@ -6,7 +6,7 @@ const { User } = require('../controllers/userController')
 
 /*-----------------------------------------------------*/
 
-router.route('/user')
+router.route('/')
     .get(User.list)
     .post(User.create)
 

@@ -18,7 +18,7 @@ module.exports.User = {
 
     create: async (req, res) =>{
 
-        const data = await User.create(req.body) //dışarıdan göndereceğim bilgileri JSON göndercem doprudan kısadan yazıyorum diyorum
+        const data = await User.create(req.body) //dışarıdan göndereceğim bilgileri JSON göndercem doğrudan kısadan yazıyorum diyorum
         res.status(201).send({
             error: false,
             body: req.body,// gönderdiğim bilgiyi göreyim diyorum
