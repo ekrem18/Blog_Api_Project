@@ -8,7 +8,7 @@ const User = require('../models/userModel')
 module.exports.User = {
     list: async (req, res) =>{
 
-        const data = await User.find()  // MongoDB'de bütün kayıtlarıu getirme metodu ; find(). 
+        const data = await User.find()  // MongoDB'de bütün kayıtları getirme metodu ; find(). 
         res.status(200).send({
             error: false,
             count: data.length,
