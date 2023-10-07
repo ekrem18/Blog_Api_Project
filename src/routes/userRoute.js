@@ -10,7 +10,7 @@ router.route('/')
     .get(User.list)
     .post(User.create)
 
-router.route('/user/:userId')
+router.route('/:userId')
     .get(User.read)
     .put(User.update)
     .delete(User.delete)
