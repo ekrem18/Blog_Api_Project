@@ -9,7 +9,7 @@ const UserSchema = new mongoose.Schema({
         unique: true,
         required: [true, 'Email field must be required'], 
         validate: [
-            (email)=> ( email.include() && email.include ('.')) ,   //doğruluk kontorlü yapılıyo
+            (email)=> ( email.includes() && email.includes('.')) ,   //doğruluk kontrolü yapılıyo
             'Email type is incorrect'  // yukarıya virgül koyduk. 2.parametre de hata mesajı verdiğim yer oluyor
         ]
     },
