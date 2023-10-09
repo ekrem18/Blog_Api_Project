@@ -1,6 +1,7 @@
 "use strict"
 
 const mongoose = require('mongoose')
+const passwordEncrypt = require('../helpers/passwordEncrypt')
 
 const UserSchema = new mongoose.Schema({
     email: {
@@ -18,7 +19,7 @@ const UserSchema = new mongoose.Schema({
         type: String,
         trim:true,
         required:true,
-        set: (password) => 'ekmer'   // gelen veri nolursa olsun çıktısını bunu yazıyo. Database'e doğrudan yazılmaz şifre bu mantıla yapılıyo.
+        set: (password) => passwordEncrypt(password)   // gelen veri nolursa olsun çıktısını bunu yazıyo. Database'e doğrudan yazılmaz şifre bu mantıla yapılıyo.
     },
     
     firstName: String,
