@@ -36,6 +36,11 @@ const blogCategorySchema = new mongoose.Schema({
 
 /*---------------------------------------------*/
 const blogPostSchema = new mongoose.Schema({
+    userId: {
+        type: mongoose.Schema.ObjectId, // Relational ObjectId
+        ref: 'User', // ModelName
+        required: true,
+    },
 
     blogCategoryId:{
         type: mongoose.Schema.ObjectId,   // Aslında bize lazım olan ObjectId ancak js objectId olarak bir veri türü olmadıpı için bu şekilde bu bilgiyi çekiyoruz.
