@@ -65,7 +65,7 @@ module.exports.User = {
                 res.errorStatusCode= 401
                 throw new Error('login parameters is not true.....')
             }
-        } else {
+        }else {
             res.errorStatusCode = 400
             throw new Error('login paramters are required')
         }
