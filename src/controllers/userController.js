@@ -57,6 +57,20 @@ module.exports.User = {
         if (email && password) {
             const user = await User.findOne({email: email, password: password})  //normaldfe filtreleme yaparken şifre bilgisini de şifreleyip ,şifreli veriyle çakıştırmam gerekioken set metodu burda da çalışıo doğrudan kodu yazabiliorm
             if(user) {
+
+                 // Set Session:
+                 req.session = {
+                    user: {
+                        email: user.email,
+                        password: user.password
+                    }
+                }
+                // Set Cookie:
+                if (req.body?.rememberMe) {
+                    // Set Cookie maxAge:
+                    req.sessionOptions.maxAge = 1000 * 60 * 60 * 24 * 3 // 3 Days
+                }
+
                 res.status(200).send({
                     error:false,
                     result:user

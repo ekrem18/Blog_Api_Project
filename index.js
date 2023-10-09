@@ -15,6 +15,13 @@ const PORT = process.env.PORT || 8000
 // npm i cookie-session
 const session = require('cookie-session')
 
+app.use(session({
+  secret: process.env.SECRET_KEY || 'fdgdsgsd',
+  //default: req.session
+  // maxAge: 1000* 60* 60 *24, //-> 1gün -- milisaniye
+
+}))
+
 
 /* ------------------------------------------------------- */
 app.use(express.json());
