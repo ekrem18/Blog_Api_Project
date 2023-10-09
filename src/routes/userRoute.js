@@ -14,5 +14,7 @@ router.route('/:userId')
     .get(User.read)
     .put(User.update)
     .delete(User.delete)
+ 
+router.post('/login', User.login)
 
 module.exports = router

@@ -51,4 +51,23 @@ module.exports.User = {
         
         res.sendStatus((data.deletedCount >= 1 ) ? 204 : 404)
     },
+
+    login: async (req,res) => {
+        const {email, password} = req.body
+        if (email && password) {
+            const user = await User.findOne({email: email, password: password})  //normaldfe filtreleme yaparken şifre bilgisini de şifreleyip ,şifreli veriyle çakıştırmam gerekioken set metodu burda da çalışıo doğrudan kodu yazabiliorm
+            if(user) {
+                res.status(200).send({
+                    error:false,
+                    result:user
+                })
+            }else {
+                res.errorStatusCode= 401
+                throw new Error('login parameters is not true.....')
+            }
+        } else {
+            res.errorStatusCode = 400
+            throw new Error('login paramters are required')
+        }
+    }
 }
