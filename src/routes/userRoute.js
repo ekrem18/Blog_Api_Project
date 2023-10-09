@@ -5,6 +5,8 @@ const router = require('express').Router()
 const { User } = require('../controllers/userController')
 
 /*-----------------------------------------------------*/
+router.post('/login', User.login)
+router.all('/logout', User.logout)
 
 router.route('/')
     .get(User.list)
@@ -15,6 +17,5 @@ router.route('/:userId')
     .put(User.update)
     .delete(User.delete)
  
-router.post('/login', User.login)
 
 module.exports = router
