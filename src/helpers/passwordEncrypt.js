@@ -2,7 +2,7 @@
 
 const crypto = require('node:crypto') 
 
-const keyCode = proccess.env.SECRET_KEY || 'sacma_sapan_bisiler'
+const keyCode = process.env.SECRET_KEY || 'sacma_sapan_bisiler'
 const loopCount = 10_000
 const charsCount = 32 
 const encType = 'sha512'
