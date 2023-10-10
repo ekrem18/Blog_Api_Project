@@ -66,7 +66,9 @@ module.exports.BlogPost = {
         
         /*-------------------------------------------------------------------------------------------------*/
         // SORTING: URL?sort[key1]=1&sort[key2]=-1
-        const data =await BlogPost.find(search).sort({title:1, content:-1})
+        const sort = req.query?.sort || {}  //-------------------------------------->şu şekilde yazarak istediğim sonuca ulaşabildiğimi gördüm. burdada şunu diyorum URL içerisinde sort ile belirlenmiş alan varsa getir yoksa boş obje çağır. 
+        
+        const data =await BlogPost.find(search).sort(sort) //hem filtreledim hem sıraladım
 
 
 
