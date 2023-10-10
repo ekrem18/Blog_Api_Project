@@ -58,16 +58,20 @@ module.exports.BlogCategory = {
 module.exports.BlogPost = {
     list: async (req, res) =>{
 
-//SEARCHING & SORTING & PAGINATION 
-    // SEARCHING: URL?search[key1]=value1&search[key2]=value2
-        const search = req.query?.search || {}
+        //SEARCHING & SORTING & PAGINATION 
+        // SEARCHING: URL?search[key1]=value1&search[key2]=value2
+        const search = req.query?.search || {}         // -------------------------------> search'ü query'den aldık
 
-        for (let key in search) search[key] = {$regex: search[key], $options: 'i'}
-        const data =await BlogPost.find(search)
+        for (let key in search) search[key] = {$regex: search[key], $options: 'i'} //----> search içierisideki herbir key'i de regex formatına soktuk.Zira içinde arama yapmak istiyorum , komple eşitlemek değil. Gerekli formata girdiği için de find'ın içine gönderdim aşağıda
+        
+        /*-------------------------------------------------------------------------------------------------*/
+        // SORTING: URL?sort[key1]=1&sort[key2]=-1
+        const data =await BlogPost.find(search).sort({title:1, content:-1})
 
 
 
-        // const data = await BlogPost.find()   // MongoDB'de bütün kayıtlarıu getirme metodu ; find()
+
+        // const data = await BlogPost.find()   // MongoDB'de bütün kayıtları getirme metodu ; find()
         res.status(200).send({
             error: false,
             count: data.length,
