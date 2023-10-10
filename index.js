@@ -35,6 +35,12 @@ require('./src/dbConnection')
 
 
 
+/* --------Searching&Sorting&Pagination------------------- */
+app.use(require('./src/middlewares/findSearchSortPage'))
+
+
+
+
 /* --------Home Page-------------------------------------- */
 app.all("/", (req, res) => {
   res.send("Welcome To BlogApi");
