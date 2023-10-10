@@ -64,10 +64,22 @@ module.exports.BlogPost = {
 
         for (let key in search) search[key] = {$regex: search[key], $options: 'i'} //----> search içierisideki herbir key'i de regex formatına soktuk.Zira içinde arama yapmak istiyorum , komple eşitlemek değil. Gerekli formata girdiği için de find'ın içine gönderdim aşağıda
         
+
         /*-------------------------------------------------------------------------------------------------*/
         // SORTING: URL?sort[key1]=1&sort[key2]=-1
         const sort = req.query?.sort || {}  //-------------------------------------->şu şekilde yazarak istediğim sonuca ulaşabildiğimi gördüm. burdada şunu diyorum URL içerisinde sort ile belirlenmiş alan varsa getir yoksa boş obje çağır. 
         
+
+        /*-------------------------------------------------------------------------------------------------*/
+        // PAGINATION: URL?page=1&limit=10
+        
+
+
+
+
+
+
+
         const data =await BlogPost.find(search).sort(sort) //hem filtreledim hem sıraladım
 
 
