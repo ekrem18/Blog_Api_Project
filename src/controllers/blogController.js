@@ -58,7 +58,16 @@ module.exports.BlogCategory = {
 module.exports.BlogPost = {
     list: async (req, res) =>{
 
-        const data = await BlogPost.find()   // MongoDB'de bütün kayıtlarıu getirme metodu ; find()
+//SEARCHING & SORTING & PAGINATION 
+    // SEARCHING: URL?search[key1]=value1&search[key2]=value2
+        const search = req.query?.search || {}
+
+        for (let key in search) search[key] = {$regex: search[key], $options: 'i'}
+        const data =await BlogPost.find(search)
+
+
+
+        // const data = await BlogPost.find()   // MongoDB'de bütün kayıtlarıu getirme metodu ; find()
         res.status(200).send({
             error: false,
             count: data.length,
