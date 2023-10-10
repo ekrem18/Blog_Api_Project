@@ -72,10 +72,18 @@ module.exports.BlogPost = {
 
         /*-------------------------------------------------------------------------------------------------*/
         // PAGINATION: URL?page=1&limit=10
-        const limit = Number( req.query?.limit || (process.env?.PAGE_SIZE || 20) )  //---->FE URL içierisinde limitle ilgili birşey yollarsa onu getir önceliğim o. Ama yoksa .env'ye bak tanımladım mı? o da yoksa sayfa içerisindeki içerik sınırım limitim 20 olsun diyorum ve gelen string olduğu için sayıya çevirdim
+        let limit = Number(req.query?.limit) //-------------------------------> URL içerisinde limti varsa onu al limit olarak tanımla
+        limit= limit > 0 ? limit : Number(process.env?.PAGE_SIZE || 20) //----> Number olarak geleceği için limit>0'sa limit değilse .env'ye git
+        console.log('limit', typeof limit, limit);
 
-        let page = (req.query?.page || 1) - 1  //--------------------------> çıkarma işlemi yaptığımız için number'a çevirmeye gerek kalmadı
-        const skip = Number(req.query?.skip || (page*limit))
+        let page = Number(req.query?.page)
+        page = (page>0 ? page : 1) - 1  //------------------------------------> çıkarma işlemi yaptığımız için number'a çevirmeye gerek kalmadı
+        console.log('page', typeof page, page);
+        
+        let skip = req.query?.skip
+        skip = skip > 0 ? skip : (page*limit)
+        console.log('skip', typeof skip, skip);
+        
         
         
 
