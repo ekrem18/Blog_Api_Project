@@ -2,13 +2,15 @@
 
 require('express-async-errors')
 
+//Call Models
 const { BlogPost,BlogCategory } = require('../models/blogModel')
 
 
 module.exports.BlogCategory = {
     list: async (req, res) =>{
 
-        const data = await BlogCategory.find()  // MongoDB'de bütün kayıtlarıu getirme metodu ; find(). 
+        // const data = await BlogCategory.find()  // MongoDB'de bütün kayıtlarıu getirme metodu ; find(). 
+        const data = await req.getModelList(BlogCategory)
         res.status(200).send({
             error: false,
             count: data.length,
@@ -58,9 +60,7 @@ module.exports.BlogCategory = {
 module.exports.BlogPost = {
     list: async (req, res) =>{
 
-        
-       //RUN
-        const data =await BlogPost.find(search).sort(sort).skip(skip).limit(limit).populate('blogCategoryId') //hem filtreledim hem sıraladım, atladım ve limitledim
+        const data = await req.getModelList(BlogPost)
 
         res.status(200).send({
             error: false,
